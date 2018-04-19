@@ -1,0 +1,22 @@
+[{
+	"name": "${container_name}",
+	"image": "${image}",
+	"portMappings": [{
+		"containerPort": 3000,
+		"hostPort": 3000
+	}],
+        "logConfiguration": {
+                "logDriver": "awslogs",
+                "options": {
+                    "awslogs-group": "ecs-logs",
+                    "awslogs-region": "us-east-1",
+                    "awslogs-stream-prefix": "nrcan-poc"
+                }
+            },
+	"networkMode": "awsvpc",
+	"memory": 300,
+	"environment": [{
+		"name": "PORT",
+		"value": "3000"
+	}]
+}]
